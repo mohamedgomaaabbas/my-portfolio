@@ -643,281 +643,8 @@
     }
 
     /* ==========================================
-       8. PROJECTS SECTION
+       8. CONTACT & FOOTER & VISITOR COUNTER
        ========================================== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: var(--transition-smooth);
-      position: relative;
-    }
-
-    .project-card.featured {
-      border-color: var(--accent);
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--accent);
-    }
-
-    .project-img-container {
-      width: 100%;
-      height: 200px;
-      background: var(--bg-main);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .project-preview-mock {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--bg-surface), var(--bg-card-hover));
-      color: var(--accent);
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .project-preview-mock i {
-      font-size: 3rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .featured-tag {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.3rem 0.8rem;
-      border-radius: 50px;
-      text-transform: uppercase;
-    }
-
-    [dir="rtl"] .featured-tag {
-      right: auto;
-      left: 12px;
-    }
-
-    .project-body {
-      padding: 1.8rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .project-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-
-    .project-desc {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 1.2rem;
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-
-    .project-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tool-tag {
-      background: var(--bg-main);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      border: 1px solid var(--border-color);
-    }
-
-    .project-footer {
-      display: flex;
-      gap: 0.8rem;
-    }
-
-    .project-footer .btn {
-      flex: 1;
-      justify-content: center;
-      font-size: 0.85rem;
-      padding: 0.6rem 1rem;
-    }
-
-    /* ==========================================
-       9. MODAL POPUP (PROJECT DETAILS)
-       ========================================== */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal.active {
-      display: flex;
-      opacity: 1;
-    }
-
-    .modal-content {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: 16px;
-      width: 100%;
-      max-width: 800px;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--bg-main);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-    }
-
-    [dir="rtl"] .modal-close {
-      right: auto;
-      left: 20px;
-    }
-
-    .modal-close:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .modal-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .modal-section {
-      margin-top: 1.5rem;
-    }
-
-    .modal-section h4 {
-      color: var(--accent);
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .modal-section p, .modal-section ul {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .modal-section ul {
-      padding-left: 1.2rem;
-    }
-
-    [dir="rtl"] .modal-section ul {
-      padding-left: 0;
-      padding-right: 1.2rem;
-    }
-
-    /* ==========================================
-       10. CONTACT & FOOTER
-       ========================================== */
-    .contact-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 3.5rem 2rem;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .contact-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .contact-desc {
-      color: var(--text-secondary);
-      max-width: 550px;
-      margin: 0 auto 2.5rem;
-      font-size: 1.05rem;
-    }
-
-    .contact-methods {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--bg-main);
-      padding: 0.8rem 1.4rem;
-      border-radius: 10px;
-      border: 1px solid var(--border-color);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .contact-item i {
-      color: var(--accent);
-    }
-
     footer {
       border-top: 1px solid var(--border-color);
       padding: 2.5rem 0;
@@ -934,13 +661,31 @@
       gap: 1rem;
     }
 
-    .social-links {
-      display: flex;
-      gap: 1rem;
+    /* Visitor Counter Styling */
+    .visitor-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-family: var(--font-code);
+    }
+
+    .visitor-badge i {
+      color: var(--accent);
+    }
+
+    .visitor-badge span {
+      font-weight: 700;
+      color: var(--accent);
     }
 
     /* ==========================================
-       11. RESPONSIVE DESIGN (MEDIA QUERIES)
+       9. RESPONSIVE DESIGN (MEDIA QUERIES)
        ========================================== */
     @media (max-width: 992px) {
       .hero-grid, .about-grid {
@@ -948,7 +693,7 @@
         text-align: center;
       }
 
-      .hero-text, .contact-desc {
+      .hero-text {
         margin-left: auto;
         margin-right: auto;
       }
@@ -962,7 +707,7 @@
       }
 
       .floating-kpi {
-        display: none; /* Hide floating widgets on tablet/mobile for clean layout */
+        display: none;
       }
     }
 
@@ -1021,13 +766,11 @@
       </a>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-        <li><a href="#about" data-i18n="nav.about">About</a></li>
-        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
-        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-        <li><a href="#education" data-i18n="nav.education">Education</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
 
       <div class="nav-controls">
@@ -1050,38 +793,36 @@
       <div class="hero-content">
         <div class="badge-status">
           <span class="status-dot"></span>
-          <span data-i18n="hero.status">Open to Data Analytics Opportunities</span>
+          <span>Open to Data Analytics Opportunities</span>
         </div>
-        <h1 class="hero-title" data-i18n="hero.name">Mohamed Gomaa Abbas</h1>
-        <div class="hero-subtitle" data-i18n="hero.title">Data Analyst | BI Developer</div>
-        <p class="hero-text" data-i18n="hero.description">
+        <h1 class="hero-title">Mohamed Gomaa Abbas</h1>
+        <div class="hero-subtitle">Data Analyst | BI Developer</div>
+        <p class="hero-text">
           Turning Data Into Actionable Business Insights. Data Analyst with a strong foundation in Computer Science and hands-on experience transforming raw data into meaningful insights through Power BI, SQL, Excel, Python, and data modeling.
         </p>
-<div class="hero-buttons" style="display: flex; flex-direction: column; gap: 12px;">
-          <!-- السطر الأول: الأزرار القديمة -->
+        <div class="hero-buttons" style="display: flex; flex-direction: column; gap: 12px;">
           <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
             <a href="#projects" class="btn btn-primary">
               <i class="fa-solid fa-chart-pie"></i>
-              <span data-i18n="hero.btnProjects">View My Projects</span>
+              <span>View My Projects</span>
             </a>
             <a href="#contact" class="btn btn-outline">
               <i class="fa-solid fa-envelope"></i>
-              <span data-i18n="hero.btnContact">Contact Me</span>
+              <span>Contact Me</span>
             </a>
             <a href="https://github.com/mohamedgomaaabbas" target="_blank" class="btn btn-outline" aria-label="GitHub">
               <i class="fa-brands fa-github"></i>
             </a>
           </div>
 
-          <!-- السطر الثاني: أزرار الـ CV مع رابط Google Drive المباشر -->
           <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
             <a href="cv.pdf" target="_blank" class="btn btn-outline" title="View CV">
               <i class="fa-solid fa-file-pdf"></i>
-              <span data-i18n="hero.btnViewCV">View CV</span>
+              <span>View CV</span>
             </a>
             <a href="cv.pdf" class="btn btn-outline" title="Download CV">
               <i class="fa-solid fa-download"></i>
-              <span data-i18n="hero.btnDownloadCV">Download CV</span>
+              <span>Download CV</span>
             </a>
           </div>
         </div>
@@ -1089,16 +830,14 @@
 
       <div class="hero-image-wrapper">
         <div class="profile-frame">
-          <!-- Real Profile Image from Local Path -->
           <img src="profile.jpg" alt="Mohamed Gomaa Abbas" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'">
         </div>
 
-        <!-- Floating KPI Widgets -->
         <div class="floating-kpi kpi-top">
           <i class="fa-solid fa-database kpi-icon"></i>
           <div>
             <div class="kpi-val">100K+</div>
-            <div class="kpi-lbl" data-i18n="hero.kpi1">Records Analyzed</div>
+            <div class="kpi-lbl">Records Analyzed</div>
           </div>
         </div>
 
@@ -1106,7 +845,7 @@
           <i class="fa-solid fa-chart-line kpi-icon"></i>
           <div>
             <div class="kpi-val">15+</div>
-            <div class="kpi-lbl" data-i18n="hero.kpi2">Custom DAX Measures</div>
+            <div class="kpi-lbl">Custom DAX Measures</div>
           </div>
         </div>
       </div>
@@ -1117,610 +856,108 @@
   <section id="about" class="about">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle" data-i18n="about.subtitle">Background</span>
-        <h2 class="section-title" data-i18n="about.title">About Me</h2>
+        <span class="section-subtitle">Background</span>
+        <h2 class="section-title">About Me</h2>
       </div>
 
       <div class="about-grid">
         <div class="about-text">
-          <p data-i18n="about.p1">
+          <p>
             Data Analyst with a solid foundation in Computer Science and strong expertise in transforming raw data into actionable business insights. Proficient in Excel (Power Query & Power Pivot), Power BI, SQL, and Python.
           </p>
-          <p data-i18n="about.p2">
-            Skilled in designing interactive dashboards, data modeling using Star Schema, and writing DAX measures to support data-informed decision-making. Passionate about solving complex business problems through structured analysis.
+          <p>
+            Skilled in designing interactive dashboards, data modeling using Star Schema, and writing DAX measures to support data-informed decision-making.
           </p>
         </div>
 
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-num">10+</div>
-            <div class="stat-label" data-i18n="stats.kpi">Key Metrics Tracked</div>
+            <div class="stat-label">Key Metrics Tracked</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">15+</div>
-            <div class="stat-label" data-i18n="stats.dax">DAX Measures Built</div>
+            <div class="stat-label">DAX Measures Built</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">100K+</div>
-            <div class="stat-label" data-i18n="stats.records">Transactions Analyzed</div>
+            <div class="stat-label">Transactions Analyzed</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">4+</div>
-            <div class="stat-label" data-i18n="stats.tools">Core Analytics Tools</div>
+            <div class="stat-label">Core Analytics Tools</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" data-i18n="skills.subtitle">Capabilities</span>
-        <h2 class="section-title" data-i18n="skills.title">Technical Skills</h2>
-      </div>
-
-      <div class="skills-grid">
-        <!-- Category 1 -->
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fa-solid fa-chart-column"></i>
-            <h3 data-i18n="skills.cat1">Data Analysis & BI</h3>
-          </div>
-          <div class="badges-flex">
-            <span class="skill-badge">Data Analysis</span>
-            <span class="skill-badge">Data Visualization</span>
-            <span class="skill-badge">Data Modeling</span>
-            <span class="skill-badge">Star Schema</span>
-            <span class="skill-badge">ETL Processes</span>
-            <span class="skill-badge">Advanced DAX</span>
-            <span class="skill-badge">Power Query</span>
-            <span class="skill-badge">Interactive Dashboards</span>
-            <span class="skill-badge">EDA</span>
-          </div>
-        </div>
-
-        <!-- Category 2 -->
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fa-solid fa-code"></i>
-            <h3 data-i18n="skills.cat2">Programming & Databases</h3>
-          </div>
-          <div class="badges-flex">
-            <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
-            <span class="skill-badge">SQL Server</span>
-            <span class="skill-badge"><i class="fa-brands fa-python"></i> Python</span>
-            <span class="skill-badge">Pandas</span>
-            <span class="skill-badge">NumPy</span>
-          </div>
-        </div>
-
-        <!-- Category 3 -->
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fa-solid fa-wrench"></i>
-            <h3 data-i18n="skills.cat3">Tools & Software</h3>
-          </div>
-          <div class="badges-flex">
-            <span class="skill-badge">Microsoft Power BI</span>
-            <span class="skill-badge"><i class="fa-solid fa-file-excel"></i> Microsoft Excel</span>
-            <span class="skill-badge">Power Pivot</span>
-            <span class="skill-badge">Pivot Tables</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE SECTION -->
-  <section id="experience" class="experience">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" data-i18n="exp.subtitle">Career Path</span>
-        <h2 class="section-title" data-i18n="exp.title">Practical Experience</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-icon">
-            <i class="fa-solid fa-briefcase"></i>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-date">Aug 2026 – Present</div>
-            <h3 class="timeline-role" data-i18n="exp.role">Data Analyst / BI Developer</h3>
-            <div class="timeline-company" data-i18n="exp.company">Independent / Hands-on Projects</div>
-            <p data-i18n="exp.desc">
-              Working on practical data analytics and business intelligence projects, transforming raw datasets into interactive dashboards and actionable insights.
-            </p>
-            <ul class="timeline-list">
-              <li data-i18n="exp.l1">E-Commerce Analytics Portal — Olist Dataset: Built a 2-page interactive analytics portal in Power BI.</li>
-              <li data-i18n="exp.l2">Analyzed 100K+ transaction records, creating 15+ custom DAX measures & calculated columns.</li>
-              <li data-i18n="exp.l3">Tracked 10+ key metrics (Total Revenue, AOV, Customer Retention) with dark-themed UI.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" data-i18n="projects.subtitle">Portfolio</span>
-        <h2 class="section-title" data-i18n="projects.title">Featured Analytics Projects</h2>
-      </div>
-
-      <div class="projects-grid">
-        <!-- Project 1 (Featured) -->
-        <div class="project-card featured">
-          <div class="project-img-container">
-            <span class="featured-tag">Featured</span>
-            <div class="project-preview-mock">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <h4>E-Commerce Portal</h4>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title" data-i18n="p1.title">E-Commerce Analytics Portal</h3>
-            <p class="project-desc" data-i18n="p1.desc">
-              Multi-page Power BI analytics portal based on the Olist dataset analyzing 100K+ transactions, retention rates, and revenue trends.
-            </p>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span>
-              <span class="tool-tag">DAX</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">Data Modeling</span>
-            </div>
-            <div class="project-footer">
-              <button class="btn btn-primary" onclick="openModal('olist')">
-                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
-              </button>
-              <a href="https://github.com/mohamedgomaaabbas" target="_blank" class="btn btn-outline">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div class="project-img-container">
-            <div class="project-preview-mock">
-              <i class="fa-solid fa-users"></i>
-              <h4>HR Analytics</h4>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title" data-i18n="p2.title">HR & Workforce Analytics</h3>
-            <p class="project-desc" data-i18n="p2.desc">
-              Interactive HR dashboard evaluating employee demographics, performance, attrition rates, and salary distributions.
-            </p>
-            <div class="project-tools">
-              <span class="tool-tag">Excel</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">Star Schema</span>
-              <span class="tool-tag">DAX</span>
-            </div>
-            <div class="project-footer">
-              <button class="btn btn-primary" onclick="openModal('hr')">
-                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
-              </button>
-              <a href="https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard" target="_blank" class="btn btn-outline">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <div class="project-img-container">
-            <div class="project-preview-mock">
-              <i class="fa-solid fa-gamepad"></i>
-              <h4>Video Games Sales</h4>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title" data-i18n="p3.title">Global Video Game Sales</h3>
-            <p class="project-desc" data-i18n="p3.desc">
-              Power BI dashboard analyzing ~8.9K sales records across NA, EU, JP, and publisher performance like Electronic Arts.
-            </p>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">DAX</span>
-            </div>
-            <div class="project-footer">
-              <button class="btn btn-primary" onclick="openModal('games')">
-                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
-              </button>
-              <a href="https://github.com/mohamedgomaaabbas/video-games-sales-analysis" target="_blank" class="btn btn-outline">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION & CERTIFICATIONS -->
-  <section id="education" class="education">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" data-i18n="edu.subtitle">Academic</span>
-        <h2 class="section-title" data-i18n="edu.title">Education & Training</h2>
-      </div>
-
-      <div class="timeline">
-        <!-- Education -->
-        <div class="timeline-item">
-          <div class="timeline-icon">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-date">2025 – Present</div>
-            <h3 class="timeline-role" data-i18n="edu.degree">B.Sc. in Computer Science</h3>
-            <div class="timeline-company" data-i18n="edu.univ">Beni-Suef University — Faculty of Science</div>
-          </div>
-        </div>
-
-        <!-- Training -->
-        <div class="timeline-item">
-          <div class="timeline-icon">
-            <i class="fa-solid fa-certificate"></i>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-date">Aug 2026 – Sep 2026</div>
-            <h3 class="timeline-role" data-i18n="edu.cert">Data Analytics Training Program</h3>
-            <div class="timeline-company">Creativa Center</div>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;" data-i18n="edu.certDesc">
-              Certified Data Analysis Fundamentals & BI Specialist covering end-to-end data pipelines.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="contact-card">
-        <h2 class="contact-title" data-i18n="contact.title">Let's Turn Data Into Insights.</h2>
-        <p class="contact-desc" data-i18n="contact.desc">
-          I'm open to connecting with professionals, collaborating on data projects, and exploring opportunities in Data Analytics and Business Intelligence.
-        </p>
-
-        <div class="contact-methods">
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <span>+201150336396</span>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span>mohamedgomaa2007a@gmail.com</span>
-          </div>
-        </div>
-
-        <div class="hero-buttons" style="justify-content: center;">
-          <a href="mailto:mohamedgomaa2007a@gmail.com" class="btn btn-primary">
-            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact.btnEmail">Email Me</span>
-          </a>
-          <a href="https://www.linkedin.com/in/mohamed-gomaa-bi" target="_blank" class="btn btn-outline">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/mohamedgomaaabbas" target="_blank" class="btn btn-outline">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- FOOTER WITH VISITOR COUNTER -->
   <footer>
     <div class="container footer-flex">
       <div>
-        <strong>Mohamed Gomaa Abbas</strong> | Data Analyst & BI Developer
+        &copy; 2026 Mohamed Gomaa Abbas. All rights reserved.
       </div>
-      <div>
-        © 2026 Mohamed Gomaa Abbas. All rights reserved.
+      
+      <!-- عداد الزوار -->
+      <div class="visitor-badge">
+        <i class="fa-solid fa-eye"></i>
+        <span>Visits: <span id="visitCount">...</span></span>
       </div>
     </div>
   </footer>
 
-  <!-- PROJECT DETAIL MODAL -->
-  <div class="modal" id="projectModal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close Modal">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <h3 class="modal-title" id="mTitle">Project Title</h3>
-      
-      <div class="modal-section">
-        <h4 data-i18n="modal.problem">Business Problem</h4>
-        <p id="mProblem"></p>
-      </div>
-
-      <div class="modal-section">
-        <h4 data-i18n="modal.process">Data Process & Modeling</h4>
-        <p id="mProcess"></p>
-      </div>
-
-      <div class="modal-section">
-        <h4 data-i18n="modal.insights">Key KPIs & Insights</h4>
-        <ul id="mInsights"></ul>
-      </div>
-
-      <div class="modal-section" style="margin-top: 2rem;">
-        <a id="mGithub" href="#" target="_blank" class="btn btn-primary">
-          <i class="fa-brands fa-github"></i> <span data-i18n="modal.repo">View GitHub Repository</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
+  <!-- JAVASCRIPT FOR VISITOR COUNTER & THEME TOGGLE -->
   <script>
-    /* ==========================================
-       TRANSLATIONS DATA (EN / AR)
-       ========================================== */
-    const translations = {
-      en: {
-        "nav.home": "Home",
-        "nav.about": "About",
-        "nav.skills": "Skills",
-        "nav.experience": "Experience",
-        "nav.projects": "Projects",
-        "nav.education": "Education",
-        "nav.contact": "Contact",
-        "hero.status": "Open to Data Analytics Opportunities",
-        "hero.name": "Mohamed Gomaa Abbas",
-        "hero.title": "Data Analyst | BI Developer",
-        "hero.description": "Turning Data Into Actionable Business Insights. Data Analyst with a strong foundation in Computer Science and hands-on experience transforming raw data into meaningful insights through Power BI, SQL, Excel, Python, and data modeling.",
-        "hero.btnProjects": "View My Projects",
-        "hero.btnContact": "Contact Me",
-        "hero.btnViewCV": "View CV",
-        "hero.btnDownloadCV": "Download CV",
-        "hero.kpi1": "Records Analyzed",
-        "hero.kpi2": "Custom DAX Measures",
-        "about.subtitle": "Background",
-        "about.title": "About Me",
-        "about.p1": "Data Analyst with a solid foundation in Computer Science and strong expertise in transforming raw data into actionable business insights. Proficient in Excel (Power Query & Power Pivot), Power BI, SQL, and Python.",
-        "about.p2": "Skilled in designing interactive dashboards, data modeling using Star Schema, and writing DAX measures to support data-informed decision-making.",
-        "stats.kpi": "Key Metrics Tracked",
-        "stats.dax": "DAX Measures Built",
-        "stats.records": "Transactions Analyzed",
-        "stats.tools": "Core Analytics Tools",
-        "skills.subtitle": "Capabilities",
-        "skills.title": "Technical Skills",
-        "skills.cat1": "Data Analysis & BI",
-        "skills.cat2": "Programming & Databases",
-        "skills.cat3": "Tools & Software",
-        "exp.subtitle": "Career Path",
-        "exp.title": "Practical Experience",
-        "exp.role": "Data Analyst / BI Developer",
-        "exp.company": "Independent / Hands-on Projects",
-        "exp.desc": "Working on practical data analytics and business intelligence projects, transforming raw datasets into interactive dashboards and actionable insights.",
-        "exp.l1": "E-Commerce Analytics Portal — Olist Dataset: Built a 2-page interactive analytics portal in Power BI.",
-        "exp.l2": "Analyzed 100K+ transaction records, creating 15+ custom DAX measures & calculated columns.",
-        "exp.l3": "Tracked 10+ key metrics (Total Revenue, AOV, Customer Retention) with dark-themed UI.",
-        "projects.subtitle": "Portfolio",
-        "projects.title": "Featured Analytics Projects",
-        "p1.title": "E-Commerce Analytics Portal",
-        "p1.desc": "Multi-page Power BI analytics portal based on the Olist dataset analyzing 100K+ transactions, retention rates, and revenue trends.",
-        "p2.title": "HR & Workforce Analytics",
-        "p2.desc": "Interactive HR dashboard evaluating employee demographics, performance, attrition rates, and salary distributions.",
-        "p3.title": "Global Video Game Sales",
-        "p3.desc": "Power BI dashboard analyzing ~8.9K sales records across NA, EU, JP, and publisher performance like Electronic Arts.",
-        "btn.details": "Details",
-        "edu.subtitle": "Academic",
-        "edu.title": "Education & Training",
-        "edu.degree": "B.Sc. in Computer Science",
-        "edu.univ": "Beni-Suef University — Faculty of Science",
-        "edu.cert": "Data Analytics Training Program",
-        "edu.certDesc": "Certified Data Analysis Fundamentals & BI Specialist covering end-to-end data pipelines.",
-        "contact.title": "Let's Turn Data Into Insights.",
-        "contact.desc": "I'm open to connecting with professionals, collaborating on data projects, and exploring opportunities in Data Analytics and Business Intelligence.",
-        "contact.btnEmail": "Email Me",
-        "modal.problem": "Business Problem",
-        "modal.process": "Data Process & Modeling",
-        "modal.insights": "Key KPIs & Insights",
-        "modal.repo": "View GitHub Repository"
-      },
-      ar: {
-        "nav.home": "الرئيسية",
-        "nav.about": "عني",
-        "nav.skills": "المهارات",
-        "nav.experience": "الخبرات",
-        "nav.projects": "المشاريع",
-        "nav.education": "التعليم",
-        "nav.contact": "تواصل معي",
-        "hero.status": "متاح لفرص تحليل البيانات وBI",
-        "hero.name": "محمد جمعة عباس",
-        "hero.title": "محلل بيانات | مطور ذكاء الأعمال (BI)",
-        "hero.description": "تحويل البيانات إلى رؤى تجارية قابلة للتنفيذ. محلل بيانات بأساس قوي في علوم الحاسب وخبرة عملية في تحويل البيانات الخام إلى رؤى قيّمة باستخدام Power BI وSQL وExcel وPython ونمذجة البيانات.",
-        "hero.btnProjects": "استعرض مشاريعي",
-        "hero.btnContact": "تواصل معي",
-        "hero.btnViewCV": "عرض السيرة الذاتية",
-        "hero.btnDownloadCV": "تحميل السيرة الذاتية",
-        "hero.kpi1": "سجل تم تحليله",
-        "hero.kpi2": "مقياس DAX مخصص",
-        "about.subtitle": "نبذة عني",
-        "about.title": "من هو محمد جمعة؟",
-        "about.p1": "محلل بيانات يمتلك خلفية أكاديمية متينة في علوم الحاسب وخبرة واسعة في تحويل البيانات المعقدة إلى قرارات استراتيجية. متمرس في Power BI وSQL وExcel وPython.",
-        "about.p2": "متخصص في بناء لوحات التحكم التفاعلية (Dashboards)، ونمذجة البيانات بنظام Star Schema، وكتابة معادلات DAX المتقدمة لدعم اتخاذ القرار.",
-        "stats.kpi": "مؤشر قياس رئيسي",
-        "stats.dax": "معادلة DAX مخصصة",
-        "stats.records": "معاملة تم تحليلها",
-        "stats.tools": "أدوات تحليل أساسية",
-        "skills.subtitle": "القدرات",
-        "skills.title": "المهارات التقنية",
-        "skills.cat1": "تحليل البيانات وذكاء الأعمال",
-        "skills.cat2": "البرمجة وقواعد البيانات",
-        "skills.cat3": "الأدوات والبرامج",
-        "exp.subtitle": "المسار المهني",
-        "exp.title": "الخبرة العملية",
-        "exp.role": "محلل بيانات | مطور BI",
-        "exp.company": "مشاريع مستقلة وعملية",
-        "exp.desc": "العمل على مشاريع تحليل بيانات واقعية وتطبيقية لتحويل البيانات الخام إلى لوحات تحكم تفاعلية.",
-        "exp.l1": "بوابة تحليل التجارة الإلكترونية (Olist): تصميم بوابة تحليلية تفاعلية من صفحتين في Power BI.",
-        "exp.l2": "تحليل أكثر من 100 ألف سجل معاملات وإنشاء 15+ مقياس DAX مخصص.",
-        "exp.l3": "متابعة 10+ مؤشرات أداء رئيسية (الإيرادات، متوسط قيمة الطلب، احتفاظ العملاء).",
-        "projects.subtitle": "معرض الأعمال",
-        "projects.title": "مشاريع تحليل البيانات",
-        "p1.title": "بوابة تحليل التجارة الإلكترونية",
-        "p1.desc": "لوحة تحكم تفاعلية متكاملة في Power BI لتحليل 100 ألف+ معاملة تجارية وسلوك العملاء والإيرادات.",
-        "p2.title": "تحليل الموارد البشرية والقوى العاملة",
-        "p2.desc": "لوحة تحكم تفاعلية لتقييم هيكل الموظفين، معدلات الدوران الوظيفي، الأداء، وتوزيع الرواتب.",
-        "p3.title": "تحليل مبيعات الألعاب الإلكترونية عالمياً",
-        "p3.desc": "تحليل شامل لـ 8.9 ألف سجل مبيعات عبر أمريكا الشمالية، أوروبا، واليابان مع أداء الشركات الناشرة.",
-        "btn.details": "التفاصيل",
-        "edu.subtitle": "المسار الأكاديمي",
-        "edu.title": "التعليم والشهادات",
-        "edu.degree": "بكالوريوس علوم الحاسب",
-        "edu.univ": "جامعة بني سويف — كلية العلوم",
-        "edu.cert": "برنامج تدريب تحليل البيانات",
-        "edu.certDesc": "شهادة معتمدة في أساسيات تحليل البيانات وذكاء الأعمال من مركز كريتيفا (Creativa).",
-        "contact.title": "لنحول البيانات إلى رؤى استراتيجية.",
-        "contact.desc": "أنا متاح للتواصل والمشاركة في مشاريع البيانات واستكشاف الفرص المهنية في مجال تحليل البيانات وذكاء الأعمال.",
-        "contact.btnEmail": "راسلني إلكترونياً",
-        "modal.problem": "المشكلة التجارية",
-        "modal.process": "معالجة ونمذجة البيانات",
-        "modal.insights": "أبرز المؤشرات والرؤى",
-        "modal.repo": "عرض مستودع GitHub"
+    // 1. Visitor Counter Logic (CountAPI + localStorage)
+    const namespace = 'mohamed-gomaa-portfolio'; // اسم مميز لربط الداتابيز
+    const key = 'visits';
+
+    function updateVisitorCount() {
+      const hasVisited = localStorage.getItem('has_visited_portfolio');
+
+      if (!hasVisited) {
+        // زيارة جديدة: زيادة العداد بمقدار 1
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById('visitCount').innerText = data.value.toLocaleString();
+            localStorage.setItem('has_visited_portfolio', 'true');
+          })
+          .catch(err => {
+            console.error('Error fetching visit count:', err);
+            document.getElementById('visitCount').innerText = '100+';
+          });
+      } else {
+        // زيارة سابقة: قراءة العدد الحالي فقط دون زيادته
+        fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById('visitCount').innerText = data.value.toLocaleString();
+          })
+          .catch(err => {
+            console.error('Error fetching visit count:', err);
+            document.getElementById('visitCount').innerText = '100+';
+          });
       }
-    };
+    }
 
-    /* Project Modal Content Data */
-    const projectDetails = {
-      olist: {
-        title: "E-Commerce Analytics Portal (Olist)",
-        problem: "Analyzing complex e-commerce operations involving 100K+ order records to evaluate revenue streams, customer retention, and logistics performance.",
-        process: "Cleaned raw data with Power Query, constructed Star Schema modeling, and authored 15+ custom DAX measures for retention rate and order volume.",
-        insights: [
-          "Tracked Total Revenue & Average Order Value (AOV).",
-          "Analyzed customer retention patterns over multi-month periods.",
-          "Implemented interactive landing-page navigation with dark-theme UI."
-        ],
-        github: "https://github.com/mohamedgomaaabbas"
-      },
-      hr: {
-        title: "HR & Workforce Analytics Dashboard",
-        problem: "Transforming unorganized HR headcount data into structured insights regarding attrition rates, demographic diversity, and performance.",
-        process: "Cleaned data in Power Query, applied Star Schema in Power Pivot/Power BI, and built dynamic DAX measures for attrition rate and average tenure.",
-        insights: [
-          "Calculated workforce attrition trends across departments.",
-          "Visualized age and gender distributions against tenure metrics.",
-          "Enabled dynamic slicing by roles, location, and evaluation ratings."
-        ],
-        github: "https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard"
-      },
-      games: {
-        title: "Video Games Global Sales Dashboard",
-        problem: "Evaluating historical sales distribution across major regional markets (NA, EU, JP) and publisher title concentration.",
-        process: "Processed ~8.9K dataset records using Power Query & Power BI, applying filter context controls for regional comparisons.",
-        insights: [
-          "North America accounted for ~49% of recorded sales, EU ~28%, JP ~13%.",
-          "Electronic Arts led publisher titles with 1,351 entries in dataset.",
-          "Evaluated top genre drivers: Sports, Platform, and Shooter."
-        ],
-        github: "https://github.com/mohamedgomaaabbas/video-games-sales-analysis"
+    document.addEventListener('DOMContentLoaded', updateVisitorCount);
+
+    // 2. Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      
+      const icon = themeToggleBtn.querySelector('i');
+      if (newTheme === 'light') {
+        icon.className = 'fa-solid fa-sun';
+      } else {
+        icon.className = 'fa-solid fa-moon';
       }
-    };
-
-    /* ==========================================
-       STATE MANAGEMENT & TOGGLES
-       ========================================== */
-    let currentLang = localStorage.getItem('pref_lang') || 'en';
-    let currentTheme = localStorage.getItem('pref_theme') || 'dark';
-
-    // Elements
-    const htmlEl = document.documentElement;
-    const langBtn = document.getElementById('langToggle');
-    const themeBtn = document.getElementById('themeToggle');
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-
-    // Theme Switch
-    function setTheme(theme) {
-      currentTheme = theme;
-      htmlEl.setAttribute('data-theme', theme);
-      localStorage.setItem('pref_theme', theme);
-      themeBtn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-    }
-
-    themeBtn.addEventListener('click', () => {
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
     });
-
-    // Language Switch
-    function setLanguage(lang) {
-      currentLang = lang;
-      htmlEl.setAttribute('lang', lang);
-      htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-      localStorage.setItem('pref_lang', lang);
-
-      // Update text nodes
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          el.innerText = translations[lang][key];
-        }
-      });
-    }
-
-    langBtn.addEventListener('click', () => {
-      setLanguage(currentLang === 'en' ? 'ar' : 'en');
-    });
-
-    // Mobile Menu Toggle
-    mobileBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('active'));
-    });
-
-    // Modal Handling
-    function openModal(projKey) {
-      const data = projectDetails[projKey];
-      if (!data) return;
-
-      document.getElementById('mTitle').innerText = data.title;
-      document.getElementById('mProblem').innerText = data.problem;
-      document.getElementById('mProcess').innerText = data.process;
-      document.getElementById('mGithub').href = data.github;
-
-      const insightsList = document.getElementById('mInsights');
-      insightsList.innerHTML = '';
-      data.insights.forEach(item => {
-        const li = document.createElement('li');
-        li.innerText = item;
-        insightsList.appendChild(li);
-      });
-
-      document.getElementById('projectModal').classList.add('active');
-    }
-
-    function closeModal() {
-      document.getElementById('projectModal').classList.remove('active');
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('projectModal');
-      if (event.target == modal) {
-        closeModal();
-      }
-    };
-
-    // Initialize
-    setTheme(currentTheme);
-    setLanguage(currentLang);
   </script>
 </body>
 </html>
