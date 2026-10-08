@@ -697,6 +697,19 @@
       text-align: center;
     }
 
+    .project-preview-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .project-img-container:hover .project-preview-image {
+      transform: scale(1.03);
+    }
+
     .project-preview-mock i {
       font-size: 3rem;
       margin-bottom: 0.8rem;
@@ -833,6 +846,17 @@
     .modal-close:hover {
       background: var(--accent);
       color: #fff;
+    }
+
+    .modal-dashboard-image {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-main);
+      margin-bottom: 1rem;
+      display: block;
     }
 
     .modal-title {
@@ -1151,7 +1175,7 @@
       <div class="hero-image-wrapper">
         <div class="profile-frame">
           <!-- Real Profile Image from Local Path -->
-          <img src="profile.jpg" alt="Mohamed Gomaa Abbas" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'">
+          <img src="profile.jpg" alt="Mohamed Gomaa Abbas" class="profile-img">
         </div>
 
         <!-- Floating KPI Widgets -->
@@ -1318,7 +1342,10 @@
         <div class="project-card featured">
           <div class="project-img-container">
             <span class="featured-tag">Featured</span>
-            <div class="project-preview-mock">
+            <img src="images/olist-dashboard.png" alt="E-Commerce Analytics Portal Dashboard"
+                 class="project-preview-image" onclick="openModal('olist')" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-preview-mock" style="display:none;">
               <i class="fa-solid fa-cart-shopping"></i>
               <h4>E-Commerce Portal</h4>
             </div>
@@ -1338,7 +1365,7 @@
               <button class="btn btn-primary" onclick="openModal('olist')">
                 <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
               </button>
-              <a href="https://github.com/mohamedgomaaabbas" target="_blank" class="btn btn-outline">
+              <a href="https://github.com/mohamedgomaaabbas/olist-ecommerce-powerbi-dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                 <i class="fa-brands fa-github"></i> GitHub
               </a>
             </div>
@@ -1348,7 +1375,10 @@
         <!-- Project 2 -->
         <div class="project-card">
           <div class="project-img-container">
-            <div class="project-preview-mock">
+            <img src="images/hr-dashboard.png" alt="HR & Workforce Analytics Dashboard"
+                 class="project-preview-image" onclick="openModal('hr')" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-preview-mock" style="display:none;">
               <i class="fa-solid fa-users"></i>
               <h4>HR Analytics</h4>
             </div>
@@ -1368,7 +1398,7 @@
               <button class="btn btn-primary" onclick="openModal('hr')">
                 <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
               </button>
-              <a href="https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard" target="_blank" class="btn btn-outline">
+              <a href="https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                 <i class="fa-brands fa-github"></i> GitHub
               </a>
             </div>
@@ -1378,7 +1408,10 @@
         <!-- Project 3 -->
         <div class="project-card">
           <div class="project-img-container">
-            <div class="project-preview-mock">
+            <img src="images/video-games-dashboard.png" alt="Global Video Game Sales Dashboard"
+                 class="project-preview-image" onclick="openModal('games')" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-preview-mock" style="display:none;">
               <i class="fa-solid fa-gamepad"></i>
               <h4>Video Games Sales</h4>
             </div>
@@ -1397,7 +1430,40 @@
               <button class="btn btn-primary" onclick="openModal('games')">
                 <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
               </button>
-              <a href="https://github.com/mohamedgomaaabbas/video-games-sales-analysis" target="_blank" class="btn btn-outline">
+              <a href="https://github.com/mohamedgomaaabbas/video-games-sales-analysis" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/blinkit-dashboard.png" alt="Blinkit Business Analytics Dashboard"
+                 class="project-preview-image" onclick="openModal('blinkit')" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-preview-mock" style="display:none;">
+              <i class="fa-solid fa-store"></i>
+              <h4>Blinkit Analytics</h4>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="p4.title">Blinkit Business Analytics Dashboard</h3>
+            <p class="project-desc" data-i18n="p4.desc">
+              Interactive Power BI dashboard designed to monitor Blinkit's sales performance, outlet trends, product performance, and key business KPIs.
+            </p>
+            <div class="project-tools">
+              <span class="tool-tag">Power BI</span>
+              <span class="tool-tag">DAX</span>
+              <span class="tool-tag">Power Query</span>
+              <span class="tool-tag">Data Modeling</span>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-primary" onclick="openModal('blinkit')">
+                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
+              </button>
+              <a href="javascript:void(0)" class="btn btn-outline" aria-label="Blinkit GitHub Repository" title="GitHub repository link can be added later">
                 <i class="fa-brands fa-github"></i> GitHub
               </a>
             </div>
@@ -1589,6 +1655,8 @@
         "p2.desc": "Interactive HR dashboard evaluating employee demographics, performance, attrition rates, and salary distributions.",
         "p3.title": "Global Video Game Sales",
         "p3.desc": "Power BI dashboard analyzing ~8.9K sales records across NA, EU, JP, and publisher performance like Electronic Arts.",
+        "p4.title": "Blinkit Business Analytics Dashboard",
+        "p4.desc": "Interactive Power BI dashboard designed to monitor Blinkit's sales performance, outlet trends, product performance, and key business KPIs.",
         "btn.details": "Details",
         "edu.subtitle": "Academic",
         "edu.title": "Education & Training",
@@ -1652,6 +1720,8 @@
         "p2.desc": "لوحة تحكم تفاعلية لتقييم هيكل الموظفين، معدلات الدوران الوظيفي، الأداء، وتوزيع الرواتب.",
         "p3.title": "تحليل مبيعات الألعاب الإلكترونية عالمياً",
         "p3.desc": "تحليل شامل لـ 8.9 ألف سجل مبيعات عبر أمريكا الشمالية، أوروبا، واليابان مع أداء الشركات الناشرة.",
+        "p4.title": "لوحة تحليلات أعمال Blinkit",
+        "p4.desc": "لوحة تحكم تفاعلية في Power BI لمتابعة أداء المبيعات واتجاهات الفروع وأداء المنتجات وأهم مؤشرات الأعمال.",
         "btn.details": "التفاصيل",
         "edu.subtitle": "المسار الأكاديمي",
         "edu.title": "التعليم والشهادات",
@@ -1681,7 +1751,8 @@
           "Analyzed customer retention patterns over multi-month periods.",
           "Implemented interactive landing-page navigation with dark-theme UI."
         ],
-        github: "https://github.com/mohamedgomaaabbas"
+        github: "https://github.com/mohamedgomaaabbas/olist-ecommerce-powerbi-dashboard",
+        image: "images/olist-dashboard.png"
       },
       hr: {
         title: "HR & Workforce Analytics Dashboard",
@@ -1692,7 +1763,8 @@
           "Visualized age and gender distributions against tenure metrics.",
           "Enabled dynamic slicing by roles, location, and evaluation ratings."
         ],
-        github: "https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard"
+        github: "https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard",
+        image: "images/hr-dashboard.png"
       },
       games: {
         title: "Video Games Global Sales Dashboard",
@@ -1703,7 +1775,20 @@
           "Electronic Arts led publisher titles with 1,351 entries in dataset.",
           "Evaluated top genre drivers: Sports, Platform, and Shooter."
         ],
-        github: "https://github.com/mohamedgomaaabbas/video-games-sales-analysis"
+        github: "https://github.com/mohamedgomaaabbas/video-games-sales-analysis",
+        image: "images/video-games-dashboard.png"
+      },
+      blinkit: {
+        title: "Blinkit Business Analytics Dashboard",
+        problem: "Built a business intelligence dashboard to provide a clear view of sales performance, outlet-level trends, product categories, and key business KPIs.",
+        process: "Prepared and transformed the dataset with Power Query, structured the analytical model, and created DAX measures to support interactive KPI analysis and business reporting.",
+        insights: [
+          "Monitored Total Sales, Average Sales, Number of Items, and Average Rating.",
+          "Compared outlet performance across outlet types, sizes, and establishment years.",
+          "Analyzed product-category performance to identify major sales contributors and business trends."
+        ],
+        github: "#",
+        image: "images/blinkit-dashboard.png"
       }
     };
 
@@ -1767,6 +1852,19 @@
       if (!data) return;
 
       document.getElementById('mTitle').innerText = data.title;
+
+      const dashboardImage = document.getElementById('mDashboardImage');
+      if (data.image) {
+        dashboardImage.src = data.image;
+        dashboardImage.alt = data.title + ' Dashboard';
+        dashboardImage.style.display = 'block';
+        dashboardImage.onerror = () => {
+          dashboardImage.style.display = 'none';
+        };
+      } else {
+        dashboardImage.style.display = 'none';
+      }
+
       document.getElementById('mProblem').innerText = data.problem;
       document.getElementById('mProcess').innerText = data.process;
       document.getElementById('mGithub').href = data.github;
@@ -1812,25 +1910,31 @@
         const now = Date.now();
         const lastVisit = Number(localStorage.getItem(visitKey) || 0);
         const twentyFourHours = 24 * 60 * 60 * 1000;
+        const shouldCountVisit = !lastVisit || (now - lastVisit) >= twentyFourHours;
 
-        let result;
-
-        if (!lastVisit || (now - lastVisit) >= twentyFourHours) {
+        // Count this browser once every 24 hours, then read the current total.
+        if (shouldCountVisit) {
+          const result = await counter.up('portfolio-visitors');
           localStorage.setItem(visitKey, String(now));
-          result = await counter.up('portfolio-visitors');
-        } else {
-          result = await counter.get('portfolio-visitors');
+
+          const count = result?.value ?? result?.data;
+          if (typeof count === 'number') {
+            counterElement.textContent = count.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US');
+            return;
+          }
         }
 
-        const count = result && (result.value ?? result.data);
+        const result = await counter.get('portfolio-visitors');
+        const count = result?.value ?? result?.data;
+
         if (typeof count === 'number') {
           counterElement.textContent = count.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US');
         } else {
-          counterElement.textContent = '—';
+          counterElement.textContent = '0';
         }
       } catch (error) {
         console.warn('Visitor counter could not be loaded:', error);
-        counterElement.textContent = '—';
+        counterElement.textContent = '0';
       }
     }
 
