@@ -697,19 +697,6 @@
       text-align: center;
     }
 
-    .project-preview-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: var(--transition-smooth);
-      cursor: pointer;
-    }
-
-    .project-img-container:hover .project-preview-image {
-      transform: scale(1.03);
-    }
-
     .project-preview-mock i {
       font-size: 3rem;
       margin-bottom: 0.8rem;
@@ -846,17 +833,6 @@
     .modal-close:hover {
       background: var(--accent);
       color: #fff;
-    }
-
-    .modal-dashboard-image {
-      width: 100%;
-      max-height: 420px;
-      object-fit: contain;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      background: var(--bg-main);
-      margin-bottom: 1rem;
-      display: block;
     }
 
     .modal-title {
@@ -1175,7 +1151,7 @@
       <div class="hero-image-wrapper">
         <div class="profile-frame">
           <!-- Real Profile Image from Local Path -->
-          <img src="profile.jpg" alt="Mohamed Gomaa Abbas" class="profile-img">
+          <img src="profile.jpg" alt="Mohamed Gomaa Abbas" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'">
         </div>
 
         <!-- Floating KPI Widgets -->
@@ -1342,10 +1318,7 @@
         <div class="project-card featured">
           <div class="project-img-container">
             <span class="featured-tag">Featured</span>
-            <img src="olist-dashboard.png" alt="E-Commerce Analytics Portal Dashboard"
-                 class="project-preview-image" onclick="openModal('olist')" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none;">
+            <div class="project-preview-mock">
               <i class="fa-solid fa-cart-shopping"></i>
               <h4>E-Commerce Portal</h4>
             </div>
@@ -1375,10 +1348,7 @@
         <!-- Project 2 -->
         <div class="project-card">
           <div class="project-img-container">
-            <img src="hr-dashboard.png" alt="HR & Workforce Analytics Dashboard"
-                 class="project-preview-image" onclick="openModal('hr')" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none;">
+            <div class="project-preview-mock">
               <i class="fa-solid fa-users"></i>
               <h4>HR Analytics</h4>
             </div>
@@ -1398,7 +1368,7 @@
               <button class="btn btn-primary" onclick="openModal('hr')">
                 <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
               </button>
-              <a href="https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <a href="https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard" target="_blank" class="btn btn-outline">
                 <i class="fa-brands fa-github"></i> GitHub
               </a>
             </div>
@@ -1408,10 +1378,7 @@
         <!-- Project 3 -->
         <div class="project-card">
           <div class="project-img-container">
-            <img src="video-games-dashboard.png" alt="Global Video Game Sales Dashboard"
-                 class="project-preview-image" onclick="openModal('games')" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none;">
+            <div class="project-preview-mock">
               <i class="fa-solid fa-gamepad"></i>
               <h4>Video Games Sales</h4>
             </div>
@@ -1430,40 +1397,37 @@
               <button class="btn btn-primary" onclick="openModal('games')">
                 <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
               </button>
-              <a href="https://github.com/mohamedgomaaabbas/video-games-sales-analysis" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <a href="https://github.com/mohamedgomaaabbas/video-games-sales-analysis" target="_blank" class="btn btn-outline">
                 <i class="fa-brands fa-github"></i> GitHub
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Project 4 -->
+        <!-- Project 4: Blinkit Business Analytics -->
         <div class="project-card">
           <div class="project-img-container">
-            <img src="blinkit-dashboard.png" alt="Blinkit Business Analytics Dashboard"
-                 class="project-preview-image" onclick="openModal('blinkit')" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none;">
-              <i class="fa-solid fa-store"></i>
-              <h4>Blinkit Analytics</h4>
+            <div class="project-preview-mock">
+              <i class="fa-solid fa-chart-line"></i>
+              <h4>Blinkit Business Analytics</h4>
             </div>
           </div>
           <div class="project-body">
             <h3 class="project-title" data-i18n="p4.title">Blinkit Business Analytics Dashboard</h3>
             <p class="project-desc" data-i18n="p4.desc">
-              Interactive Power BI dashboard designed to monitor Blinkit's sales performance, outlet trends, product performance, and key business KPIs.
+              Interactive Power BI dashboard exploring sales performance, outlet characteristics, product categories, and key business KPIs.
             </p>
             <div class="project-tools">
               <span class="tool-tag">Power BI</span>
               <span class="tool-tag">DAX</span>
               <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">Data Modeling</span>
+              <span class="tool-tag">Business Analytics</span>
             </div>
             <div class="project-footer">
               <button class="btn btn-primary" onclick="openModal('blinkit')">
                 <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
               </button>
-              <a href="javascript:void(0)" class="btn btn-outline" aria-label="Blinkit GitHub Repository" title="GitHub repository link can be added later">
+              <a href="https://github.com/mohamedgomaaabbas/Blinkit-Business-Analytics-Dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                 <i class="fa-brands fa-github"></i> GitHub
               </a>
             </div>
@@ -1592,8 +1556,8 @@
       </div>
 
       <div class="modal-section" style="margin-top: 2rem;">
-        <a id="mGithub" href="#" target="_blank" class="btn btn-primary">
-          <i class="fa-brands fa-github"></i> <span data-i18n="modal.repo">View GitHub Repository</span>
+        <a id="mGithub" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="modal.repo">Explore Full Project</span>
         </a>
       </div>
     </div>
@@ -1656,7 +1620,7 @@
         "p3.title": "Global Video Game Sales",
         "p3.desc": "Power BI dashboard analyzing ~8.9K sales records across NA, EU, JP, and publisher performance like Electronic Arts.",
         "p4.title": "Blinkit Business Analytics Dashboard",
-        "p4.desc": "Interactive Power BI dashboard designed to monitor Blinkit's sales performance, outlet trends, product performance, and key business KPIs.",
+        "p4.desc": "Interactive Power BI dashboard exploring sales performance, outlet characteristics, product categories, and key business KPIs.",
         "btn.details": "Details",
         "edu.subtitle": "Academic",
         "edu.title": "Education & Training",
@@ -1670,7 +1634,7 @@
         "modal.problem": "Business Problem",
         "modal.process": "Data Process & Modeling",
         "modal.insights": "Key KPIs & Insights",
-        "modal.repo": "View GitHub Repository",
+        "modal.repo": "Explore Full Project",
         "footer.visitors": "Portfolio Visitors"
       },
       ar: {
@@ -1720,8 +1684,8 @@
         "p2.desc": "لوحة تحكم تفاعلية لتقييم هيكل الموظفين، معدلات الدوران الوظيفي، الأداء، وتوزيع الرواتب.",
         "p3.title": "تحليل مبيعات الألعاب الإلكترونية عالمياً",
         "p3.desc": "تحليل شامل لـ 8.9 ألف سجل مبيعات عبر أمريكا الشمالية، أوروبا، واليابان مع أداء الشركات الناشرة.",
-        "p4.title": "لوحة تحليلات أعمال Blinkit",
-        "p4.desc": "لوحة تحكم تفاعلية في Power BI لمتابعة أداء المبيعات واتجاهات الفروع وأداء المنتجات وأهم مؤشرات الأعمال.",
+        "p4.title": "لوحة تحليلات الأعمال في Blinkit",
+        "p4.desc": "لوحة Power BI تفاعلية لتحليل أداء المبيعات وخصائص الفروع وفئات المنتجات ومؤشرات الأداء الرئيسية.",
         "btn.details": "التفاصيل",
         "edu.subtitle": "المسار الأكاديمي",
         "edu.title": "التعليم والشهادات",
@@ -1735,7 +1699,7 @@
         "modal.problem": "المشكلة التجارية",
         "modal.process": "معالجة ونمذجة البيانات",
         "modal.insights": "أبرز المؤشرات والرؤى",
-        "modal.repo": "عرض مستودع GitHub",
+        "modal.repo": "استكشف المشروع بالكامل",
         "footer.visitors": "زوار البورتفوليو"
       }
     };
@@ -1744,51 +1708,47 @@
     const projectDetails = {
       olist: {
         title: "E-Commerce Analytics Portal (Olist)",
-        problem: "Analyzing complex e-commerce operations involving 100K+ order records to evaluate revenue streams, customer retention, and logistics performance.",
-        process: "Cleaned raw data with Power Query, constructed Star Schema modeling, and authored 15+ custom DAX measures for retention rate and order volume.",
+        problem: "Understand sales, customer behavior, and delivery performance across more than 100K e-commerce order records.",
+        process: "Cleaned and modeled the data in Power BI using Power Query, a Star Schema, and custom DAX measures.",
         insights: [
-          "Tracked Total Revenue & Average Order Value (AOV).",
-          "Analyzed customer retention patterns over multi-month periods.",
-          "Implemented interactive landing-page navigation with dark-theme UI."
+          "Track total revenue and average order value.",
+          "Explore customer retention and order trends.",
+          "Compare delivery and sales performance interactively."
         ],
-        github: "https://github.com/mohamedgomaaabbas/olist-ecommerce-powerbi-dashboard",
-        image: "olist-dashboard.png"
+        github: "https://github.com/mohamedgomaaabbas/olist-ecommerce-powerbi-dashboard"
       },
       hr: {
         title: "HR & Workforce Analytics Dashboard",
-        problem: "Transforming unorganized HR headcount data into structured insights regarding attrition rates, demographic diversity, and performance.",
-        process: "Cleaned data in Power Query, applied Star Schema in Power Pivot/Power BI, and built dynamic DAX measures for attrition rate and average tenure.",
+        problem: "Get a clear view of the workforce, employee turnover, and staff demographics.",
+        process: "Prepared the HR data and built interactive Power BI visuals with measures for attrition and employee tenure.",
         insights: [
-          "Calculated workforce attrition trends across departments.",
-          "Visualized age and gender distributions against tenure metrics.",
-          "Enabled dynamic slicing by roles, location, and evaluation ratings."
+          "Compare attrition across departments.",
+          "Explore employee demographics and tenure.",
+          "Filter results by role and other HR attributes."
         ],
-        github: "https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard",
-        image: "hr-dashboard.png"
+        github: "https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard"
       },
       games: {
         title: "Video Games Global Sales Dashboard",
-        problem: "Evaluating historical sales distribution across major regional markets (NA, EU, JP) and publisher title concentration.",
-        process: "Processed ~8.9K dataset records using Power Query & Power BI, applying filter context controls for regional comparisons.",
+        problem: "Understand how video game sales vary by region, genre, platform, and publisher.",
+        process: "Prepared approximately 8.9K records and built an interactive Power BI dashboard for sales comparisons.",
         insights: [
-          "North America accounted for ~49% of recorded sales, EU ~28%, JP ~13%.",
-          "Electronic Arts led publisher titles with 1,351 entries in dataset.",
-          "Evaluated top genre drivers: Sports, Platform, and Shooter."
+          "Compare sales across North America, Europe, and Japan.",
+          "Explore top-performing genres and platforms.",
+          "Review publisher performance and sales patterns."
         ],
-        github: "https://github.com/mohamedgomaaabbas/video-games-sales-analysis",
-        image: "video-games-dashboard.png"
+        github: "https://github.com/mohamedgomaaabbas/video-games-sales-analysis"
       },
       blinkit: {
         title: "Blinkit Business Analytics Dashboard",
-        problem: "Built a business intelligence dashboard to provide a clear view of sales performance, outlet-level trends, product categories, and key business KPIs.",
-        process: "Prepared and transformed the dataset with Power Query, structured the analytical model, and created DAX measures to support interactive KPI analysis and business reporting.",
+        problem: "Find out what drives Blinkit's sales and how outlet types, locations, and product categories affect performance.",
+        process: "Organized the dataset in Power BI and created interactive visuals to review sales and key business KPIs.",
         insights: [
-          "Monitored Total Sales, Average Sales, Number of Items, and Average Rating.",
-          "Compared outlet performance across outlet types, sizes, and establishment years.",
-          "Analyzed product-category performance to identify major sales contributors and business trends."
+          "Compare sales by outlet type and location.",
+          "Explore product categories and their sales contribution.",
+          "Review key KPIs to support business decisions."
         ],
-        github: "#",
-        image: "blinkit-dashboard.png"
+        github: "https://github.com/mohamedgomaaabbas/Blinkit-Business-Analytics-Dashboard"
       }
     };
 
@@ -1852,19 +1812,6 @@
       if (!data) return;
 
       document.getElementById('mTitle').innerText = data.title;
-
-      const dashboardImage = document.getElementById('mDashboardImage');
-      if (data.image) {
-        dashboardImage.src = data.image;
-        dashboardImage.alt = data.title + ' Dashboard';
-        dashboardImage.style.display = 'block';
-        dashboardImage.onerror = () => {
-          dashboardImage.style.display = 'none';
-        };
-      } else {
-        dashboardImage.style.display = 'none';
-      }
-
       document.getElementById('mProblem').innerText = data.problem;
       document.getElementById('mProcess').innerText = data.process;
       document.getElementById('mGithub').href = data.github;
@@ -1910,31 +1857,25 @@
         const now = Date.now();
         const lastVisit = Number(localStorage.getItem(visitKey) || 0);
         const twentyFourHours = 24 * 60 * 60 * 1000;
-        const shouldCountVisit = !lastVisit || (now - lastVisit) >= twentyFourHours;
 
-        // Count this browser once every 24 hours, then read the current total.
-        if (shouldCountVisit) {
-          const result = await counter.up('portfolio-visitors');
+        let result;
+
+        if (!lastVisit || (now - lastVisit) >= twentyFourHours) {
           localStorage.setItem(visitKey, String(now));
-
-          const count = result?.value ?? result?.data;
-          if (typeof count === 'number') {
-            counterElement.textContent = count.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US');
-            return;
-          }
+          result = await counter.up('portfolio-visitors');
+        } else {
+          result = await counter.get('portfolio-visitors');
         }
 
-        const result = await counter.get('portfolio-visitors');
-        const count = result?.value ?? result?.data;
-
+        const count = result && (result.value ?? result.data);
         if (typeof count === 'number') {
           counterElement.textContent = count.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US');
         } else {
-          counterElement.textContent = '0';
+          counterElement.textContent = '—';
         }
       } catch (error) {
         console.warn('Visitor counter could not be loaded:', error);
-        counterElement.textContent = '0';
+        counterElement.textContent = '—';
       }
     }
 
