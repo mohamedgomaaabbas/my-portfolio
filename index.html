@@ -78,6 +78,10 @@
       box-sizing: border-box;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     html {
       scroll-behavior: smooth;
       font-size: 16px;
@@ -103,6 +107,13 @@
 
     ul {
       list-style: none;
+    }
+
+    /* Visible keyboard focus (new) */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
 
     .container {
@@ -722,6 +733,7 @@
       padding: 0.3rem 0.8rem;
       border-radius: 50px;
       text-transform: uppercase;
+      z-index: 1;
     }
 
     [dir="rtl"] .featured-tag {
@@ -769,6 +781,7 @@
 
     .project-footer {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.8rem;
     }
 
@@ -832,6 +845,7 @@
       justify-content: center;
       cursor: pointer;
       transition: var(--transition-smooth);
+      z-index: 3;
     }
 
     [dir="rtl"] .modal-close {
@@ -848,6 +862,7 @@
       font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 1rem;
+      padding-inline-end: 2.5rem;
     }
 
     .modal-section {
@@ -875,6 +890,145 @@
     [dir="rtl"] .modal-section ul {
       padding-left: 0;
       padding-right: 1.2rem;
+    }
+
+    .modal-section ul li {
+      list-style: disc;
+    }
+
+    .modal-section .project-tools {
+      margin-bottom: 0;
+    }
+
+    .modal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    /* ----- Project gallery (modal) ----- */
+    .gallery {
+      margin-top: 1.5rem;
+    }
+
+    .gallery-stage {
+      position: relative;
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: pan-y;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .gallery-fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      height: 100%;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery-fallback i {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--nav-bg);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .gallery-nav:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .gallery-prev { inset-inline-start: 10px; }
+    .gallery-next { inset-inline-end: 10px; }
+
+    [dir="rtl"] .gallery-nav i {
+      transform: scaleX(-1);
+    }
+
+    .gallery-counter {
+      position: absolute;
+      bottom: 10px;
+      inset-inline-end: 10px;
+      background: var(--nav-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.1rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-family: var(--font-code);
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+    }
+
+    .gallery-thumb {
+      flex: 0 0 auto;
+      width: 84px;
+      height: 54px;
+      border-radius: 6px;
+      border: 2px solid var(--border-color);
+      padding: 0;
+      background: var(--bg-main);
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.65;
+      transition: var(--transition-smooth);
+    }
+
+    .gallery-thumb:hover { opacity: 1; }
+
+    .gallery-thumb.active {
+      border-color: var(--accent);
+      opacity: 1;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* ==========================================
@@ -921,6 +1075,15 @@
       border: 1px solid var(--border-color);
       font-weight: 600;
       font-size: 0.95rem;
+    }
+
+    a.contact-item {
+      transition: var(--transition-smooth);
+    }
+
+    a.contact-item:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     .contact-item i {
@@ -1010,6 +1173,72 @@
     }
 
     /* ==========================================
+       FLOATING WHATSAPP BUTTON
+       ========================================== */
+    .whatsapp-float {
+      position: fixed;
+      inset-inline-end: 24px;
+      bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      /* Below the navbar (1000) and the project modal (2000) so overlays stay on top */
+      z-index: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .whatsapp-float:hover,
+    .whatsapp-float:focus-visible {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 26px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-float:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      inset-inline-end: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1.4;
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    [dir="rtl"] .whatsapp-tooltip {
+      font-family: var(--font-ar);
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip,
+    .whatsapp-float:focus-visible .whatsapp-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ==========================================
        11. RESPONSIVE DESIGN (MEDIA QUERIES)
        ========================================== */
     @media (max-width: 992px) {
@@ -1078,6 +1307,57 @@
         flex-direction: column;
         justify-content: center;
       }
+
+      /* New components on small screens */
+      .modal-content {
+        padding: 1.5rem;
+      }
+
+      .modal-title {
+        font-size: 1.4rem;
+      }
+
+      .gallery-nav {
+        width: 34px;
+        height: 34px;
+      }
+
+      .gallery-thumb {
+        width: 64px;
+        height: 42px;
+      }
+
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        font-size: 1.7rem;
+        inset-inline-end: 16px;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      }
+
+      .whatsapp-tooltip {
+        display: none;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .whatsapp-float,
+      .whatsapp-tooltip,
+      .gallery-nav,
+      .gallery-thumb {
+        transition: none;
+      }
+
+      .whatsapp-float:hover,
+      .whatsapp-float:focus-visible {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -1138,14 +1418,14 @@
               <i class="fa-solid fa-envelope"></i>
               <span data-i18n="hero.btnContact">Contact Me</span>
             </a>
-            <a href="https://github.com/mohamedgomaaabbas" target="_blank" class="btn btn-outline" aria-label="GitHub">
+            <a href="https://github.com/mohamedgomaaabbas" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="GitHub">
               <i class="fa-brands fa-github"></i>
             </a>
           </div>
 
           <!-- السطر الثاني: أزرار الـ CV مع رابط Google Drive المباشر -->
           <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-            <a href="cv.pdf" target="_blank" class="btn btn-outline" title="View CV">
+            <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" title="View CV">
               <i class="fa-solid fa-file-pdf"></i>
               <span data-i18n="hero.btnViewCV">View CV</span>
             </a>
@@ -1322,119 +1602,8 @@
         <h2 class="section-title" data-i18n="projects.title">Featured Analytics Projects</h2>
       </div>
 
-      <div class="projects-grid">
-        <!-- Project 1 (Featured) -->
-        <div class="project-card featured">
-          <div class="project-img-container">
-            <span class="featured-tag">Featured</span>
-            <img class="project-screenshot" src="olist-dashboard.png" alt="Olist Dashboard preview" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none"><i class="fa-solid fa-chart-column"></i><h4>Project Preview</h4></div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title" data-i18n="p1.title">E-Commerce Analytics Portal</h3>
-            <p class="project-desc" data-i18n="p1.desc">
-              Multi-page Power BI analytics portal based on the Olist dataset analyzing 100K+ transactions, retention rates, and revenue trends.
-            </p>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span>
-              <span class="tool-tag">DAX</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">Data Modeling</span>
-            </div>
-            <div class="project-footer">
-              <button class="btn btn-primary" onclick="openModal('olist')">
-                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
-              </button>
-              <a href="https://github.com/mohamedgomaaabbas/olist-ecommerce-powerbi-dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div class="project-img-container">
-            <img class="project-screenshot" src="hr-dashboard.png" alt="Hr Dashboard preview" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none"><i class="fa-solid fa-chart-column"></i><h4>Project Preview</h4></div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title" data-i18n="p2.title">HR & Workforce Analytics</h3>
-            <p class="project-desc" data-i18n="p2.desc">
-              Interactive HR dashboard evaluating employee demographics, performance, attrition rates, and salary distributions.
-            </p>
-            <div class="project-tools">
-              <span class="tool-tag">Excel</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">Star Schema</span>
-              <span class="tool-tag">DAX</span>
-            </div>
-            <div class="project-footer">
-              <button class="btn btn-primary" onclick="openModal('hr')">
-                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
-              </button>
-              <a href="https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard" target="_blank" class="btn btn-outline">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <div class="project-img-container">
-            <img class="project-screenshot" src="video-games-dashboard.png" alt="Video Games Dashboard preview" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none"><i class="fa-solid fa-chart-column"></i><h4>Project Preview</h4></div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title" data-i18n="p3.title">Global Video Game Sales</h3>
-            <p class="project-desc" data-i18n="p3.desc">
-              Power BI dashboard analyzing ~8.9K sales records across NA, EU, JP, and publisher performance like Electronic Arts.
-            </p>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">DAX</span>
-            </div>
-            <div class="project-footer">
-              <button class="btn btn-primary" onclick="openModal('games')">
-                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
-              </button>
-              <a href="https://github.com/mohamedgomaaabbas/video-games-sales-analysis" target="_blank" class="btn btn-outline">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: Blinkit Business Analytics -->
-        <div class="project-card">
-          <div class="project-img-container">
-            <img class="project-screenshot" src="blinkit-dashboard.png" alt="Blinkit Dashboard preview" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="project-preview-mock" style="display:none"><i class="fa-solid fa-chart-column"></i><h4>Project Preview</h4></div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title" data-i18n="p4.title">Blinkit Business Analytics Dashboard</h3>
-            <p class="project-desc" data-i18n="p4.desc">
-              Interactive Power BI dashboard exploring sales performance, outlet characteristics, product categories, and key business KPIs.
-            </p>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span>
-              <span class="tool-tag">DAX</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">Business Analytics</span>
-            </div>
-            <div class="project-footer">
-              <button class="btn btn-primary" onclick="openModal('blinkit')">
-                <i class="fa-solid fa-eye"></i> <span data-i18n="btn.details">Details</span>
-              </button>
-              <a href="https://github.com/mohamedgomaaabbas/Blinkit-Business-Analytics-Dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Cards are rendered from the PROJECTS array in the script below -->
+      <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
 
@@ -1487,25 +1656,29 @@
         </p>
 
         <div class="contact-methods">
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <span>+201150336396</span>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
+          <a class="contact-item" href="tel:+201150336396">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span dir="ltr">+201150336396</span>
+          </a>
+          <a class="contact-item" href="mailto:mohamedgomaa2007a@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
             <span>mohamedgomaa2007a@gmail.com</span>
-          </div>
+          </a>
         </div>
 
         <div class="hero-buttons" style="justify-content: center;">
           <a href="mailto:mohamedgomaa2007a@gmail.com" class="btn btn-primary">
             <i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact.btnEmail">Email Me</span>
           </a>
-          <a href="https://www.linkedin.com/in/mohamed-gomaa-bi" target="_blank" class="btn btn-outline">
+          <a href="https://www.linkedin.com/in/mohamed-gomaa-bi" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
             <i class="fa-brands fa-linkedin"></i> LinkedIn
           </a>
-          <a href="https://github.com/mohamedgomaaabbas" target="_blank" class="btn btn-outline">
+          <a href="https://github.com/mohamedgomaaabbas" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
             <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <!-- Facebook: href is filled from SITE_CONFIG.facebookUrl; hidden if that value is empty -->
+          <a href="#contact" id="facebookLink" target="_blank" rel="noopener noreferrer" class="btn btn-outline" hidden>
+            <i class="fa-brands fa-facebook"></i> Facebook
           </a>
         </div>
       </div>
@@ -1533,34 +1706,53 @@
     </div>
   </footer>
 
+  <!-- FLOATING WHATSAPP BUTTON (single instance; the URL is completed from SITE_CONFIG in the script) -->
+  <a class="whatsapp-float" id="whatsappFloat" href="https://wa.me/201150336396" target="_blank" rel="noopener noreferrer" aria-label="Contact me on WhatsApp" data-i18n-aria="wa.label">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span class="whatsapp-tooltip" role="tooltip" aria-hidden="true" data-i18n="wa.label">Contact me on WhatsApp</span>
+  </a>
+
   <!-- PROJECT DETAIL MODAL -->
   <div class="modal" id="projectModal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close Modal">
-        <i class="fa-solid fa-xmark"></i>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close" data-i18n-aria="modal.close">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
       <h3 class="modal-title" id="mTitle">Project Title</h3>
-      
-      <div class="modal-section">
+
+      <div class="modal-section" id="mIntroWrap" hidden>
+        <p id="mIntro"></p>
+      </div>
+
+      <!-- Gallery is built from the project's `images` array -->
+      <div class="gallery" id="mGallery" role="region" hidden></div>
+
+      <div class="modal-section" id="mProblemWrap" hidden>
         <h4 data-i18n="modal.problem">Business Problem</h4>
         <p id="mProblem"></p>
       </div>
 
-      <div class="modal-section">
+      <div class="modal-section" id="mProcessWrap" hidden>
         <h4 data-i18n="modal.process">Data Process & Modeling</h4>
         <p id="mProcess"></p>
       </div>
 
-      <div class="modal-section">
+      <div class="modal-section" id="mInsightsWrap" hidden>
         <h4 data-i18n="modal.insights">Key KPIs & Insights</h4>
         <ul id="mInsights"></ul>
       </div>
 
-      <div class="modal-section" style="margin-top: 2rem;">
-        <a id="mGithub" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="modal.repo">Explore Full Project</span>
-        </a>
+      <div class="modal-section" id="mToolsWrap" hidden>
+        <h4 data-i18n="modal.tools">Tools & Technologies</h4>
+        <div class="project-tools" id="mTools"></div>
       </div>
+
+      <div class="modal-section" id="mSkillsWrap" hidden>
+        <h4 data-i18n="modal.skills">Skills</h4>
+        <div class="project-tools" id="mSkills"></div>
+      </div>
+
+      <div class="modal-links" id="mLinks"></div>
     </div>
   </div>
 
@@ -1569,6 +1761,172 @@
 
   <!-- JavaScript -->
   <script>
+    /* ==========================================
+       SITE CONFIGURATION (contact links)
+       ========================================== */
+    const SITE_CONFIG = {
+      whatsapp: {
+        number: "201150336396", // international format, digits only (no +, spaces or dashes)
+        message: "Hello Mohamed, I viewed your portfolio and would like to get in touch." // set to "" for no prefilled text
+      },
+      facebookUrl: "https://www.facebook.com/profile.php?id=61595006477012" // set to "" to hide the Facebook button
+    };
+
+    /* ==========================================
+       PROJECTS DATA  — add / edit projects HERE
+       ------------------------------------------
+       coverImage : image shown ONLY on the project card.
+       images     : screenshots shown ONLY in the details gallery.
+                    (The two are fully independent.)
+       Text fields can be a plain string or { en: "...", ar: "..." }.
+       Optional fields: category, description, skills, liveDemoUrl,
+       caseStudyUrl, date, featured, problem, process, insights.
+       Empty / missing optional fields are simply not displayed.
+       ========================================== */
+    const PROJECTS = [
+      {
+        id: "olist",
+        title: {
+          en: "E-Commerce Sales & Logistics Analytics Portal",
+          ar: "بوابة تحليلات المبيعات واللوجستيات للتجارة الإلكترونية"
+        },
+        shortDescription: {
+          en: "Multi-page Power BI analytics portal based on the Olist dataset analyzing 100K+ transactions, retention rates, and revenue trends.",
+          ar: "لوحة تحكم تفاعلية متكاملة في Power BI لتحليل 100 ألف+ معاملة تجارية وسلوك العملاء والإيرادات."
+        },
+        problem: "Understand sales, customer behavior, and delivery performance across more than 100K e-commerce order records.",
+        process: "Cleaned and modeled the data in Power BI using Power Query, a Star Schema, and custom DAX measures.",
+        insights: [
+          "Track total revenue and average order value.",
+          "Explore customer retention and order trends.",
+          "Compare delivery and sales performance interactively."
+        ],
+        coverImage: "cover/olist-dashboard.png",
+        images: [
+          "images/olist/sales performance.png",
+          "images/olist/logistic.png",
+          "images/olist/insights.png"
+        ],
+        tools: ["Power BI", "DAX", "Power Query", "Data Modeling"],
+        skills: [],
+        githubUrl: "https://github.com/mohamedgomaaabbas/olist-ecommerce-powerbi-dashboard",
+        liveDemoUrl: "",
+        caseStudyUrl: "",
+        featured: true
+      },
+      {
+        id: "hr",
+        title: {
+          en: "HR & Workforce Analytics",
+          ar: "تحليل الموارد البشرية والقوى العاملة"
+        },
+        shortDescription: {
+          en: "Interactive HR dashboard evaluating employee demographics, performance, attrition rates, and salary distributions.",
+          ar: "لوحة تحكم تفاعلية لتقييم هيكل الموظفين، معدلات الدوران الوظيفي، الأداء، وتوزيع الرواتب."
+        },
+        problem: "Get a clear view of the workforce, employee turnover, and staff demographics.",
+        process: "Prepared the HR data and built interactive Power BI visuals with measures for attrition and employee tenure.",
+        insights: [
+          "Compare attrition across departments.",
+          "Explore employee demographics and tenure.",
+          "Filter results by role and other HR attributes."
+        ],
+        coverImage: "cover/hr-dashboard.png",
+        images: [
+          "images/hr/visualization.png",
+          "images/hr/insights.png"
+        ],
+        tools: ["Excel", "Power Query", "Star Schema", "DAX"],
+        skills: [],
+        githubUrl: "https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard",
+        liveDemoUrl: "",
+        caseStudyUrl: ""
+      },
+      {
+        id: "games",
+        title: {
+          en: "Global Video Game Sales",
+          ar: "تحليل مبيعات الألعاب الإلكترونية عالمياً"
+        },
+        shortDescription: {
+          en: "Power BI dashboard analyzing ~8.9K sales records across NA, EU, JP, and publisher performance like Electronic Arts.",
+          ar: "تحليل شامل لـ 8.9 ألف سجل مبيعات عبر أمريكا الشمالية، أوروبا، واليابان مع أداء الشركات الناشرة."
+        },
+        problem: "Understand how video game sales vary by region, genre, platform, and publisher.",
+        process: "Prepared approximately 8.9K records and built an interactive Power BI dashboard for sales comparisons.",
+        insights: [
+          "Compare sales across North America, Europe, and Japan.",
+          "Explore top-performing genres and platforms.",
+          "Review publisher performance and sales patterns."
+        ],
+        coverImage: "cover/video-games-dashboard.png",
+        images: [
+          "images/video-games/project_video_games.png"
+        ],
+        tools: ["Power BI", "Power Query", "DAX"],
+        skills: [],
+        githubUrl: "https://github.com/mohamedgomaaabbas/video-games-sales-analysis",
+        liveDemoUrl: "",
+        caseStudyUrl: ""
+      },
+      {
+        id: "blinkit",
+        title: {
+          en: "Blinkit Business Analytics Dashboard",
+          ar: "لوحة تحليلات الأعمال في Blinkit"
+        },
+        shortDescription: {
+          en: "Interactive Power BI dashboard exploring sales performance, outlet characteristics, product categories, and key business KPIs.",
+          ar: "لوحة Power BI تفاعلية لتحليل أداء المبيعات وخصائص الفروع وفئات المنتجات ومؤشرات الأداء الرئيسية."
+        },
+        problem: "Find out what drives Blinkit's sales and how outlet types, locations, and product categories affect performance.",
+        process: "Organized the dataset in Power BI and created interactive visuals to review sales and key business KPIs.",
+        insights: [
+          "Compare sales by outlet type and location.",
+          "Explore product categories and their sales contribution.",
+          "Review key KPIs to support business decisions."
+        ],
+        coverImage: "cover/blinkit-dashboard.png",
+        images: [
+          "images/blinkit/Home.png",
+          "images/blinkit/Overview.png",
+          "images/blinkit/sales_order_analysis.png",
+          "images/blinkit/customer_analysis.png",
+          "images/blinkit/Delivery&operation.png",
+          "images/blinkit/insights and recommendation.png"
+        ],
+        tools: ["Power BI", "DAX", "Power Query", "Business Analytics"],
+        skills: [],
+        githubUrl: "https://github.com/mohamedgomaaabbas/Blinkit-Business-Analytics-Dashboard",
+        liveDemoUrl: "",
+        caseStudyUrl: ""
+      },
+      {
+        id: "student-dropout",
+        title: {
+          en: "Student Dropout Analysis",
+          ar: "تحليل تسرب الطلاب"
+        },
+        shortDescription: {
+          en: "Interactive Power BI dashboard analyzing student dropout through student lifestyle, academic performance, and key insights.",
+          ar: "لوحة Power BI تفاعلية لتحليل تسرب الطلاب من خلال نمط حياة الطلاب والأداء الأكاديمي وأبرز الرؤى."
+        },
+        coverImage: "cover/student-dropout-dashboard.png",
+        images: [
+          "images/student-dropout/Home.png",
+          "images/student-dropout/Overview.png",
+          "images/student-dropout/Student Lifestyle.png",
+          "images/student-dropout/Academic Performance.png",
+          "images/student-dropout/Key Insights.png"
+        ],
+        tools: ["Power BI", "DAX", "Data Modeling", "Data Visualization"],
+        skills: [],
+        githubUrl: "https://github.com/mohamedgomaaabbas/Student-Attrition-Analysis-PowerBI",
+        liveDemoUrl: "",
+        caseStudyUrl: ""
+      }
+    ];
+
     /* ==========================================
        TRANSLATIONS DATA (EN / AR)
        ========================================== */
@@ -1614,15 +1972,11 @@
         "exp.l3": "Tracked 10+ key metrics (Total Revenue, AOV, Customer Retention) with dark-themed UI.",
         "projects.subtitle": "Portfolio",
         "projects.title": "Featured Analytics Projects",
-        "p1.title": "E-Commerce Analytics Portal",
-        "p1.desc": "Multi-page Power BI analytics portal based on the Olist dataset analyzing 100K+ transactions, retention rates, and revenue trends.",
-        "p2.title": "HR & Workforce Analytics",
-        "p2.desc": "Interactive HR dashboard evaluating employee demographics, performance, attrition rates, and salary distributions.",
-        "p3.title": "Global Video Game Sales",
-        "p3.desc": "Power BI dashboard analyzing ~8.9K sales records across NA, EU, JP, and publisher performance like Electronic Arts.",
-        "p4.title": "Blinkit Business Analytics Dashboard",
-        "p4.desc": "Interactive Power BI dashboard exploring sales performance, outlet characteristics, product categories, and key business KPIs.",
+        "projects.featured": "Featured",
         "btn.details": "Details",
+        "btn.github": "GitHub",
+        "btn.live": "Live Demo",
+        "btn.case": "Case Study",
         "edu.subtitle": "Academic",
         "edu.title": "Education & Training",
         "edu.degree": "B.Sc. in Computer Science",
@@ -1635,7 +1989,16 @@
         "modal.problem": "Business Problem",
         "modal.process": "Data Process & Modeling",
         "modal.insights": "Key KPIs & Insights",
+        "modal.tools": "Tools & Technologies",
+        "modal.skills": "Skills",
         "modal.repo": "Explore Full Project",
+        "modal.close": "Close",
+        "modal.gallery": "Project gallery",
+        "gallery.prev": "Previous image",
+        "gallery.next": "Next image",
+        "gallery.missing": "Image not available",
+        "gallery.goto": "Show image",
+        "wa.label": "Contact me on WhatsApp",
         "footer.visitors": "Portfolio Visitors"
       },
       ar: {
@@ -1679,15 +2042,11 @@
         "exp.l3": "متابعة 10+ مؤشرات أداء رئيسية (الإيرادات، متوسط قيمة الطلب، احتفاظ العملاء).",
         "projects.subtitle": "معرض الأعمال",
         "projects.title": "مشاريع تحليل البيانات",
-        "p1.title": "بوابة تحليل التجارة الإلكترونية",
-        "p1.desc": "لوحة تحكم تفاعلية متكاملة في Power BI لتحليل 100 ألف+ معاملة تجارية وسلوك العملاء والإيرادات.",
-        "p2.title": "تحليل الموارد البشرية والقوى العاملة",
-        "p2.desc": "لوحة تحكم تفاعلية لتقييم هيكل الموظفين، معدلات الدوران الوظيفي، الأداء، وتوزيع الرواتب.",
-        "p3.title": "تحليل مبيعات الألعاب الإلكترونية عالمياً",
-        "p3.desc": "تحليل شامل لـ 8.9 ألف سجل مبيعات عبر أمريكا الشمالية، أوروبا، واليابان مع أداء الشركات الناشرة.",
-        "p4.title": "لوحة تحليلات الأعمال في Blinkit",
-        "p4.desc": "لوحة Power BI تفاعلية لتحليل أداء المبيعات وخصائص الفروع وفئات المنتجات ومؤشرات الأداء الرئيسية.",
+        "projects.featured": "مميز",
         "btn.details": "التفاصيل",
+        "btn.github": "GitHub",
+        "btn.live": "عرض مباشر",
+        "btn.case": "دراسة حالة",
         "edu.subtitle": "المسار الأكاديمي",
         "edu.title": "التعليم والشهادات",
         "edu.degree": "بكالوريوس علوم الحاسب",
@@ -1700,65 +2059,321 @@
         "modal.problem": "المشكلة التجارية",
         "modal.process": "معالجة ونمذجة البيانات",
         "modal.insights": "أبرز المؤشرات والرؤى",
+        "modal.tools": "الأدوات والتقنيات",
+        "modal.skills": "المهارات",
         "modal.repo": "استكشف المشروع بالكامل",
+        "modal.close": "إغلاق",
+        "modal.gallery": "معرض صور المشروع",
+        "gallery.prev": "الصورة السابقة",
+        "gallery.next": "الصورة التالية",
+        "gallery.missing": "الصورة غير متاحة",
+        "gallery.goto": "عرض الصورة",
+        "wa.label": "تواصل معي عبر واتساب",
         "footer.visitors": "زوار البورتفوليو"
       }
     };
 
-    /* Project Modal Content Data */
-    const projectDetails = {
-      olist: {
-        title: "E-Commerce Analytics Portal (Olist)",
-        problem: "Understand sales, customer behavior, and delivery performance across more than 100K e-commerce order records.",
-        process: "Cleaned and modeled the data in Power BI using Power Query, a Star Schema, and custom DAX measures.",
-        insights: [
-          "Track total revenue and average order value.",
-          "Explore customer retention and order trends.",
-          "Compare delivery and sales performance interactively."
-        ],
-        github: "https://github.com/mohamedgomaaabbas/olist-ecommerce-powerbi-dashboard"
-      },
-      hr: {
-        title: "HR & Workforce Analytics Dashboard",
-        problem: "Get a clear view of the workforce, employee turnover, and staff demographics.",
-        process: "Prepared the HR data and built interactive Power BI visuals with measures for attrition and employee tenure.",
-        insights: [
-          "Compare attrition across departments.",
-          "Explore employee demographics and tenure.",
-          "Filter results by role and other HR attributes."
-        ],
-        github: "https://github.com/mohamedgomaaabbas/HR-Analytics-Dashboard"
-      },
-      games: {
-        title: "Video Games Global Sales Dashboard",
-        problem: "Understand how video game sales vary by region, genre, platform, and publisher.",
-        process: "Prepared approximately 8.9K records and built an interactive Power BI dashboard for sales comparisons.",
-        insights: [
-          "Compare sales across North America, Europe, and Japan.",
-          "Explore top-performing genres and platforms.",
-          "Review publisher performance and sales patterns."
-        ],
-        github: "https://github.com/mohamedgomaaabbas/video-games-sales-analysis"
-      },
-      blinkit: {
-        title: "Blinkit Business Analytics Dashboard",
-        problem: "Find out what drives Blinkit's sales and how outlet types, locations, and product categories affect performance.",
-        process: "Organized the dataset in Power BI and created interactive visuals to review sales and key business KPIs.",
-        insights: [
-          "Compare sales by outlet type and location.",
-          "Explore product categories and their sales contribution.",
-          "Review key KPIs to support business decisions."
-        ],
-        github: "https://github.com/mohamedgomaaabbas/Blinkit-Business-Analytics-Dashboard"
-      }
-    };
-
     /* ==========================================
-       STATE MANAGEMENT & TOGGLES
+       HELPERS
        ========================================== */
     let currentLang = localStorage.getItem('pref_lang') || 'en';
     let currentTheme = localStorage.getItem('pref_theme') || 'dark';
 
+    const T = key => (translations[currentLang] && translations[currentLang][key]) || translations.en[key] || '';
+
+    // Localised value: plain string, or { en, ar }
+    function L(v) {
+      if (v && typeof v === 'object' && !Array.isArray(v)) {
+        return v[currentLang] !== undefined ? v[currentLang] : (v.en !== undefined ? v.en : '');
+      }
+      return v == null ? '' : v;
+    }
+
+    // Localised list: array of strings / { en, ar }, or { en: [...], ar: [...] }
+    function LL(v) {
+      if (Array.isArray(v)) return v.map(L).filter(Boolean);
+      const r = L(v);
+      return Array.isArray(r) ? r.filter(Boolean) : [];
+    }
+
+    // Only allow real http(s) URLs (no "#", no empty strings, no javascript:)
+    function safeUrl(u) {
+      return (typeof u === 'string' && /^https?:\/\//i.test(u.trim())) ? u.trim() : '';
+    }
+
+    // Local image path -> safe src (handles spaces and special characters in file names)
+    function imgSrc(p) {
+      return encodeURI(String(p).trim());
+    }
+
+    // Small DOM builder (uses textContent, never innerHTML, so data cannot inject markup)
+    function el(tag, props = {}, ...kids) {
+      const n = document.createElement(tag);
+      for (const [k, v] of Object.entries(props)) {
+        if (v == null || v === false) continue;
+        if (k === 'class') n.className = v;
+        else if (k === 'text') n.textContent = v;
+        else if (k.startsWith('on') && typeof v === 'function') n.addEventListener(k.slice(2), v);
+        else n.setAttribute(k, v);
+      }
+      kids.flat().forEach(c => { if (c != null) n.append(c); });
+      return n;
+    }
+
+    function externalLink(url, cls, iconClass, label) {
+      return el('a', { class: cls, href: url, target: '_blank', rel: 'noopener noreferrer' },
+        el('i', { class: iconClass, 'aria-hidden': 'true' }), ' ', el('span', { text: label }));
+    }
+
+    /* ==========================================
+       PROJECT CARDS
+       ========================================== */
+    function createCard(p) {
+      // Cover image: coverImage ONLY (never the gallery)
+      const imgBox = el('div', { class: 'project-img-container' });
+      if (p.featured) imgBox.append(el('span', { class: 'featured-tag', text: T('projects.featured') }));
+
+      const mock = el('div', { class: 'project-preview-mock', style: p.coverImage ? 'display:none' : null },
+        el('i', { class: 'fa-solid fa-chart-column', 'aria-hidden': 'true' }),
+        el('h4', { text: 'Project Preview' }));
+
+      if (p.coverImage) {
+        const img = el('img', {
+          class: 'project-screenshot',
+          src: imgSrc(p.coverImage),
+          alt: L(p.title) + ' dashboard preview',
+          loading: 'lazy'
+        });
+        img.addEventListener('error', () => { img.style.display = 'none'; mock.style.display = 'flex'; });
+        imgBox.append(img);
+      }
+      imgBox.append(mock);
+
+      const footer = el('div', { class: 'project-footer' },
+        el('button', { class: 'btn btn-primary', type: 'button', onclick: () => openModal(p.id) },
+          el('i', { class: 'fa-solid fa-eye', 'aria-hidden': 'true' }), ' ', el('span', { text: T('btn.details') })));
+
+      const gh = safeUrl(p.githubUrl);
+      const live = safeUrl(p.liveDemoUrl);
+      const cs = safeUrl(p.caseStudyUrl);
+      if (gh) footer.append(externalLink(gh, 'btn btn-outline', 'fa-brands fa-github', T('btn.github')));
+      if (live) footer.append(externalLink(live, 'btn btn-outline', 'fa-solid fa-arrow-up-right-from-square', T('btn.live')));
+      if (cs) footer.append(externalLink(cs, 'btn btn-outline', 'fa-solid fa-file-lines', T('btn.case')));
+
+      const body = el('div', { class: 'project-body' },
+        el('h3', { class: 'project-title', text: L(p.title) }),
+        el('p', { class: 'project-desc', text: L(p.shortDescription) }),
+        el('div', { class: 'project-tools' }, (p.tools || []).map(t => el('span', { class: 'tool-tag', text: t }))),
+        footer);
+
+      return el('div', { class: 'project-card' + (p.featured ? ' featured' : '') }, imgBox, body);
+    }
+
+    function renderProjects() {
+      document.getElementById('projectsGrid').replaceChildren(...PROJECTS.map(createCard));
+    }
+
+    /* ==========================================
+       PROJECT MODAL + GALLERY
+       ========================================== */
+    let activeProject = null;
+    let galleryIndex = 0;
+    let lastFocused = null;
+
+    const modalEl = document.getElementById('projectModal');
+
+    function setSection(wrapId, show) {
+      document.getElementById(wrapId).hidden = !show;
+    }
+
+    function fillChips(containerId, wrapId, items) {
+      const box = document.getElementById(containerId);
+      box.replaceChildren(...items.map(t => el('span', { class: 'tool-tag', text: t })));
+      setSection(wrapId, items.length > 0);
+    }
+
+    function populateModal(p) {
+      document.getElementById('mTitle').textContent = L(p.title);
+
+      const problem = L(p.problem), process = L(p.process), insights = LL(p.insights);
+      const hasDetails = !!(problem || process || insights.length);
+
+      // Intro text: full description if given; otherwise the short description when no other details exist
+      const intro = L(p.description) || (hasDetails ? '' : L(p.shortDescription));
+      document.getElementById('mIntro').textContent = intro;
+      setSection('mIntroWrap', !!intro);
+
+      document.getElementById('mProblem').textContent = problem;
+      setSection('mProblemWrap', !!problem);
+      document.getElementById('mProcess').textContent = process;
+      setSection('mProcessWrap', !!process);
+
+      const ul = document.getElementById('mInsights');
+      ul.replaceChildren(...insights.map(i => el('li', { text: i })));
+      setSection('mInsightsWrap', insights.length > 0);
+
+      fillChips('mTools', 'mToolsWrap', (p.tools || []).filter(Boolean));
+      fillChips('mSkills', 'mSkillsWrap', (p.skills || []).filter(Boolean));
+
+      // Links: only those that really exist
+      const links = document.getElementById('mLinks');
+      links.replaceChildren();
+      const gh = safeUrl(p.githubUrl), live = safeUrl(p.liveDemoUrl), cs = safeUrl(p.caseStudyUrl);
+      if (gh) links.append(externalLink(gh, 'btn btn-primary', 'fa-brands fa-github', T('modal.repo')));
+      if (live) links.append(externalLink(live, 'btn btn-outline', 'fa-solid fa-arrow-up-right-from-square', T('btn.live')));
+      if (cs) links.append(externalLink(cs, 'btn btn-outline', 'fa-solid fa-file-lines', T('btn.case')));
+      links.hidden = links.children.length === 0;
+
+      buildGallery(p);
+    }
+
+    // Gallery: uses ONLY p.images (never p.coverImage)
+    function buildGallery(p) {
+      const box = document.getElementById('mGallery');
+      const images = (p.images || []).filter(Boolean);
+      box.replaceChildren();
+      if (!images.length) { box.hidden = true; return; }
+      box.hidden = false;
+      box.setAttribute('aria-label', T('modal.gallery'));
+      if (galleryIndex >= images.length) galleryIndex = 0;
+
+      const img = el('img', { class: 'gallery-img', alt: '' });
+      const fallback = el('div', { class: 'gallery-fallback' },
+        el('i', { class: 'fa-regular fa-image', 'aria-hidden': 'true' }),
+        el('span', { text: T('gallery.missing') }));
+      const counter = el('div', { class: 'gallery-counter', 'aria-live': 'polite' });
+      const stage = el('div', { class: 'gallery-stage' }, img, fallback);
+
+      img.addEventListener('error', () => { img.style.display = 'none'; fallback.style.display = 'flex'; });
+      img.addEventListener('load', () => { img.style.display = 'block'; fallback.style.display = 'none'; });
+
+      const multi = images.length > 1;
+      const thumbs = el('div', { class: 'gallery-thumbs' });
+
+      function show(i) {
+        galleryIndex = (i + images.length) % images.length;
+        img.style.display = 'block';
+        fallback.style.display = 'none';
+        img.src = imgSrc(images[galleryIndex]);
+        img.alt = L(p.title) + ' — ' + (galleryIndex + 1) + ' / ' + images.length;
+        counter.textContent = (galleryIndex + 1) + ' / ' + images.length;
+        thumbs.querySelectorAll('.gallery-thumb').forEach((t, idx) => {
+          t.classList.toggle('active', idx === galleryIndex);
+          t.setAttribute('aria-current', idx === galleryIndex ? 'true' : 'false');
+        });
+      }
+      box._show = show; // used by keyboard navigation
+
+      if (multi) {
+        const prev = el('button', { class: 'gallery-nav gallery-prev', type: 'button', 'aria-label': T('gallery.prev'), onclick: () => show(galleryIndex - 1) },
+          el('i', { class: 'fa-solid fa-chevron-left', 'aria-hidden': 'true' }));
+        const next = el('button', { class: 'gallery-nav gallery-next', type: 'button', 'aria-label': T('gallery.next'), onclick: () => show(galleryIndex + 1) },
+          el('i', { class: 'fa-solid fa-chevron-right', 'aria-hidden': 'true' }));
+        stage.append(prev, next, counter);
+
+        images.forEach((src, idx) => {
+          const tImg = el('img', { src: imgSrc(src), alt: '', loading: 'lazy' });
+          tImg.addEventListener('error', () => { tImg.style.visibility = 'hidden'; });
+          thumbs.append(el('button', { class: 'gallery-thumb', type: 'button', 'aria-label': T('gallery.goto') + ' ' + (idx + 1), onclick: () => show(idx) }, tImg));
+        });
+
+        // Touch swipe (direction-aware for RTL)
+        let startX = null;
+        stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+        stage.addEventListener('touchend', e => {
+          if (startX === null) return;
+          const dx = e.changedTouches[0].clientX - startX;
+          startX = null;
+          if (Math.abs(dx) < 40) return;
+          const rtl = document.documentElement.dir === 'rtl';
+          const goPrev = rtl ? dx < 0 : dx > 0;
+          show(galleryIndex + (goPrev ? -1 : 1));
+        }, { passive: true });
+      }
+
+      box.append(stage);
+      if (multi) box.append(thumbs);
+      show(galleryIndex);
+    }
+
+    function openModal(projKey) {
+      const p = PROJECTS.find(x => x.id === projKey);
+      if (!p) return;
+      activeProject = p;
+      galleryIndex = 0;
+      lastFocused = document.activeElement;
+      populateModal(p);
+      modalEl.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      modalEl.querySelector('.modal-content').scrollTop = 0;
+      document.getElementById('modalClose').focus();
+    }
+
+    function closeModal() {
+      if (!modalEl.classList.contains('active')) return;
+      modalEl.classList.remove('active');
+      document.body.style.overflow = '';
+      activeProject = null;
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+
+    // Close only when the dark backdrop itself is clicked (clicks inside the dialog / gallery never close it)
+    modalEl.addEventListener('click', e => {
+      if (e.target === modalEl) closeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!modalEl.classList.contains('active')) return;
+
+      if (e.key === 'Escape') { closeModal(); return; }
+
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        const gallery = document.getElementById('mGallery');
+        if (gallery.hidden || !gallery._show || ((activeProject.images || []).length < 2)) return;
+        const rtl = document.documentElement.dir === 'rtl';
+        const forward = (e.key === 'ArrowRight') !== rtl;
+        gallery._show(galleryIndex + (forward ? 1 : -1));
+        e.preventDefault();
+        return;
+      }
+
+      // Keep keyboard focus inside the dialog
+      if (e.key === 'Tab') {
+        const focusables = modalEl.querySelectorAll('button:not([disabled]), a[href]');
+        const visible = Array.from(focusables).filter(n => n.offsetParent !== null);
+        if (!visible.length) return;
+        const first = visible[0], last = visible[visible.length - 1];
+        if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+        else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+      }
+    });
+
+    /* ==========================================
+       CONTACT LINKS (from SITE_CONFIG)
+       ========================================== */
+    function setupContactLinks() {
+      // WhatsApp: opens a chat only; the visitor decides whether to send the prefilled text
+      const wa = document.getElementById('whatsappFloat');
+      const number = String(SITE_CONFIG.whatsapp.number || '').replace(/\D/g, '');
+      if (number) {
+        let url = 'https://wa.me/' + number;
+        if (SITE_CONFIG.whatsapp.message) url += '?text=' + encodeURIComponent(SITE_CONFIG.whatsapp.message);
+        wa.href = url;
+      } else {
+        wa.hidden = true;
+      }
+
+      // Facebook: shown only when a valid URL is configured
+      const fb = document.getElementById('facebookLink');
+      const fbUrl = safeUrl(SITE_CONFIG.facebookUrl);
+      if (fbUrl) { fb.href = fbUrl; fb.hidden = false; } else { fb.hidden = true; }
+    }
+
+    /* ==========================================
+       STATE MANAGEMENT & TOGGLES
+       ========================================== */
     // Elements
     const htmlEl = document.documentElement;
     const langBtn = document.getElementById('langToggle');
@@ -1792,6 +2407,16 @@
           el.innerText = translations[lang][key];
         }
       });
+
+      // Update accessible names
+      document.querySelectorAll('[data-i18n-aria]').forEach(node => {
+        const key = node.getAttribute('data-i18n-aria');
+        if (translations[lang][key]) node.setAttribute('aria-label', translations[lang][key]);
+      });
+
+      // Re-render data-driven content in the new language
+      renderProjects();
+      if (activeProject) populateModal(activeProject);
     }
 
     langBtn.addEventListener('click', () => {
@@ -1807,44 +2432,12 @@
       link.addEventListener('click', () => navLinks.classList.remove('active'));
     });
 
-    // Modal Handling
-    function openModal(projKey) {
-      const data = projectDetails[projKey];
-      if (!data) return;
-
-      document.getElementById('mTitle').innerText = data.title;
-      document.getElementById('mProblem').innerText = data.problem;
-      document.getElementById('mProcess').innerText = data.process;
-      document.getElementById('mGithub').href = data.github;
-
-      const insightsList = document.getElementById('mInsights');
-      insightsList.innerHTML = '';
-      data.insights.forEach(item => {
-        const li = document.createElement('li');
-        li.innerText = item;
-        insightsList.appendChild(li);
-      });
-
-      document.getElementById('projectModal').classList.add('active');
-    }
-
-    function closeModal() {
-      document.getElementById('projectModal').classList.remove('active');
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('projectModal');
-      if (event.target == modal) {
-        closeModal();
-      }
-    };
-
     /* Visitor count is handled by the CounterAPI.com embed loaded above. */
 
     // Initialize
     setTheme(currentTheme);
+    setupContactLinks();
     setLanguage(currentLang);
-    initializeVisitorCounter();
   </script>
 </body>
 </html>
